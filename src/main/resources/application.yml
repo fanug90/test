@@ -1,0 +1,31 @@
+server:
+  port: ${SERVER_PORT:8097}
+
+spring:
+  application:
+    name: restaurant-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: ${KEYCLOAK_ISSUER_URI:https://identity.trucksload.com/realms/merchant-os}
+
+restaurant:
+  seed:
+    # Must equal the merchant_id claim of the test user.
+    merchant-id: ${SEED_MERCHANT_ID:MRC-00044}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      probes:
+        enabled: true
+
+logging:
+  pattern:
+    level: "%5p [correlationId=%X{correlationId:-}]"
+
