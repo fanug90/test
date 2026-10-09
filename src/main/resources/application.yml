@@ -28,4 +28,15 @@ management:
 logging:
   pattern:
     level: "%5p [correlationId=%X{correlationId:-}]"
+  level:
+      org.springframework.security: DEBUG
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+
+
 
